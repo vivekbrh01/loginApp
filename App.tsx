@@ -1,12 +1,32 @@
 import React from 'react';
-import Main from './app/components/main';
-import {View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import Home from './app/components/Home/Home';
+import Dashboard from './app/components/Dashboard/Dashboard';
 
 function App(): JSX.Element {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View>
-      <Main />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerTitle: '',
+          }}
+        />
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{
+            headerTitle: '',
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
